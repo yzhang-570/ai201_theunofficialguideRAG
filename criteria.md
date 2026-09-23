@@ -25,6 +25,7 @@ contains the answer.
 **Why this target:**
 <!-- e.g. "One of my questions is about a topic only two documents mention, so
      I expect that one to be hard." -->
+     A few questions aren't worded exactly asked in the source documents, so the answer may also differ slightly in phrasing.
 
 ---
 
@@ -35,6 +36,7 @@ Every answer the system produces names at least one source document.
 **Why this target:**
 <!-- Why all five and not four? What about your setup makes that achievable —
      or what would have to go wrong for it not to be? -->
+     This is an all or nothing criteria. All answers should follow it to prove the answer's credibility.
 
 ---
 
@@ -52,10 +54,14 @@ in at least 4 of 5 tries.
 **Why this target:**
 <!-- What did your distances look like when you set the cutoff in Milestone 4?
      Was there a clean gap, or did the two groups overlap? -->
+     This is a lenient bar, as none of the out of scope questions are related to what the documents answer.
+     Even if the RAG makes a mistake, no more than 1 of 5 questions should truly attempt to evaluate an answer.
 
 ---
 
-## 4. Something about your chunks
+## 4. A chunk should cover no more than one topic
+
+Every answer should use chunks that cover no more than one topic.
 
 <!-- YOU WRITE THIS ONE.
 
@@ -72,12 +78,15 @@ in at least 4 of 5 tries.
 
 
 **Why this target:**
-
+All responses in the chosen corpus, "advice_threads", have highly consistent source answer threads that each span 2 sentences.
+The system should identify only relevant threads, and return those accordingly without extra threads.
 
 
 ---
 
-## 5. Your choice
+## 5. The system shouldn't answer questions about vacations.
+When I ask a question about vacations, the relevance gate should always stop it.
+
 
 <!-- YOU WRITE THIS ONE TOO.
 
@@ -87,10 +96,8 @@ in at least 4 of 5 tries.
      present — anything, as long as it names a number or an observable
      outcome. -->
 
-
-
 **Why this target:**
-
+This criteria has a singular clear topic that the documents clearly don't cover; the system should never attempt to evaluate an answer.
 
 
 ---
