@@ -53,29 +53,75 @@
 
      Milestone 3. -->
 
+```
+---Incomplete
+Problematic chunks with original (fixed chunk_size = 800, overlap = 200) chunking approach
+======================================================================
+Chunk 2  |  source: thread_bike_commute.txt#1  |  produced by: chunker.py::fallback_split
+======================================================================
+nd it's the only reason I got mine back after it was taken.
+
+---This one is ok, is a full standalone thought - but inconsistent with other chunks, which are almost a full document (multiple threads in response to 1 question)
+======================================================================
+Chunk 8  |  source: thread_first_year_regret.txt#1  |  produced by: chunker.py::fallback_split
+======================================================================
+) ---
+That your adviser's job is partly to know the exceptions to rules. Ask before assuming a deadline is fixed.
+
+---Incomplete
+======================================================================
+Chunk 15  |  source: thread_meal_plan_tier.txt#1  |  produced by: chunker.py::fallback_split
+======================================================================
+t.
+```
+
+```
+Chunks with new (adjusted) chunking strategy:
+```
+
 **Chunk 1** — source: `` — produced by: ``
 
 ```
+======================================================================
+Chunk 4  |  source: thread_bike_commute.txt#3  |  produced by: chunker.py::split_documents
+======================================================================
+If you do get one, the campus does free registration and it's the only reason I got mine back after it was taken.
 ```
 
 **Chunk 2** — source: `` — produced by: ``
 
 ```
+======================================================================
+Chunk 22  |  source: thread_first_year_regret.txt#4  |  produced by: chunker.py::split_documents
+======================================================================
+That your adviser's job is partly to know the exceptions to rules. Ask before assuming a deadline is fixed.
 ```
 
 **Chunk 3** — source: `` — produced by: ``
 
 ```
+======================================================================
+Chunk 41  |  source: thread_meal_plan_tier.txt#3  |  produced by: chunker.py::split_documents
+======================================================================
+Declining balance rolls within the semester but not between them. Spend it in December or lose it.
 ```
 
 **Chunk 4** — source: `` — produced by: ``
 
 ```
+======================================================================
+Chunk 26  |  source: thread_internship_timing.txt#0  |  produced by: chunker.py::split_documents
+======================================================================
+Earlier than feels reasonable. Large employers close applications in October and November for the following summer.
 ```
 
 **Chunk 5** — source: `` — produced by: ``
 
 ```
+======================================================================
+Chunk 42  |  source: thread_office_hours_etiquette.txt#0  |  produced by: chunker.py::split_documents
+======================================================================
+No, and this is the single most common thing first years get wrong. 'I'm following the lectures but I don't feel like I understand the shape of it' is a completely normal thing to say.
 ```
 
 ## Sample Answer
