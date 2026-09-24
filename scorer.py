@@ -6,7 +6,7 @@ def judge(question, expects, answer, results) -> bool:
 
   # lower - converts string to lowercase
   # trim - strips whitespace from beginning and end
-  return expects.lower().trim() in answer.lower()
+  return expects.lower().strip() in answer.lower()
   # fails if answer: '0 libraries', expects: 'no libraries', 
 
   # return any(expects.strip().lower() for chunk in results);
