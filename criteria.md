@@ -12,6 +12,9 @@ Under each one, write a sentence or two on **why that target** and not a
 stricter or looser one. A reason that says something about your corpus or your
 pipeline earns credit; *"80% seemed reasonable"* does not.
 
+Criteria - must use an explicit number, count, or rate
+Why this target? - why not stricter/looser, and must reason using corpus or pipeline
+
 > Missing your own targets next unit costs you nothing. Setting a target so
 > easy you can't miss it does.
 
@@ -20,7 +23,7 @@ pipeline earns credit; *"80% seemed reasonable"* does not.
 ## 1. Retrieved chunks contain the answer
 
 For at least 4 of my 5 test questions, the retrieved chunks include one that
-contains the answer.
+contains the expected answer.
 
 **Why this target:**
 <!-- e.g. "One of my questions is about a topic only two documents mention, so
@@ -36,7 +39,8 @@ Every answer the system produces names at least one source document.
 **Why this target:**
 <!-- Why all five and not four? What about your setup makes that achievable —
      or what would have to go wrong for it not to be? -->
-     This is an all or nothing criteria. All answers should follow it to prove the answer's credibility.
+     All answers should name a source to prove that the answer was sourced from chunks using the pipeline, not hallucinated.
+     This should apply to all, because it proves that the pipeline is working given that questions were relevant to the corpus.
 
 ---
 
@@ -59,9 +63,9 @@ in at least 4 of 5 tries.
 
 ---
 
-## 4. A chunk should cover no more than one topic
+## 4. A chunk should only cover one topic
 
-Every answer should use chunks that cover no more than one topic.
+Every answer should use chunks that cover only 1 topic.
 
 <!-- YOU WRITE THIS ONE.
 
