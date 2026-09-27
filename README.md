@@ -1,19 +1,6 @@
 # The Unofficial Guide
 
-<!-- Replace this line with your name and which corpus you picked. -->
-
-> **This file is your submission.** Fill it in as you go — most sections get
-> written during the milestone that produces them, not at the end.
->
-> How the starter works, and every command you'll need, is in `RUNNING.md`.
-> Leave that file alone.
->
-> **Paste everything as text.** No screenshots, no video. A typed table gets
-> full credit; a picture of the same table gets none.
->
-> Delete these instruction blocks as you replace them. The `<!-- -->` comments
-> are notes to you and don't show up when the page renders — you can leave them
-> or remove them.
+<!-- Yuwen Zhang, Corpus: advice_threads -->
 
 ---
 
@@ -26,11 +13,12 @@
      this repo.
 
      Milestone 5. -->
+     The corpus this repo is optimized for is advice_threads. This system answers questions looking for answers based in personal experience. This ranges from topics big to small, such as commuting and meals plans to transfers. 
 
 ## Chunking Strategy
 
-**Chunk size:**
-**Overlap:**
+<!-- **Chunk size:**
+**Overlap:** -->
 
 <!-- What about YOUR documents made you pick these numbers? Short posts and
      long sectioned guides don't want the same chunking, and "800 seemed
@@ -41,6 +29,10 @@
      more than pretending you got it right first time.
 
      Milestone 3. -->
+
+     I chose to use each "reply" as a chunk for my corpus, advice_threads, rather than fixed chunk and overlap sizes, brecause each document consists of short posts with highly standardized formatting.
+
+     In addition, I noticed that chunking presented a significant issue for this corpus; because each reply is so short, chunks suffer severely from missing context when they are unintentionally cut in the middle. While this was infrequent, affecting only 3 of 26 chunks using the original strategy, using paragraph breaks proved significantly more reliable with 0 of 26 chunks affected.
 
 ## Sample Chunks
 
@@ -130,13 +122,18 @@ No, and this is the single most common thing first years get wrong. 'I'm followi
      visible. Milestone 4. -->
 
 **Question:**
+"When should students apply for internships?"
 
 **Answer:**
-
 ```
+(best distance 0.600, cutoff 0.7)
+
+Students should apply for internships earlier than feels reasonable, as large employers close their applications in October and November for the following summer. However, smaller and local places hire in February and March, meaning missing the autumn application window does not mean missing everything (thread_internship_timing.txt).
+
+Sources retrieved: thread_first_year_regret.txt, thread_internship_timing.txt, thread_late_work.txt, thread_pass_fail.txt
 ```
 
-**My relevance cutoff:**
+**My relevance cutoff:** 0.7
 
 <!-- The number you set in config.py, and how you got there.
 
@@ -149,7 +146,15 @@ No, and this is the single most common thing first years get wrong. 'I'm followi
 
 | Question | In corpus? | Best distance |
 |---|---|---|
-|  |  |  |
+| Who should I talk to if I have conflicts with my roomate? | Yes | 0.633 |
+| What advice do you have for joining clubs? | Yes | 0.695 |
+| Any insider tips about studying in the library? | Yes | 0.545 |
+| When should students apply for internships? | Yes | 0.600 |
+| What is the capital of Mongolia? | No | 0.891 |
+| How do I change the oil in a diesel engine? | No | 0.762 |
+| Who won the 1994 World Cup? | No | 0.942 |
+| What is the recommended dosage of ibuprofen for a headache? | No | 0.748 |
+| How do I write a for loop in Rust? | No | 0.849 |
 
 ## How I Used AI
 
