@@ -150,6 +150,7 @@ Sources retrieved: thread_first_year_regret.txt, thread_internship_timing.txt, t
 | What advice do you have for joining clubs? | Yes | 0.695 |
 | Any insider tips about studying in the library? | Yes | 0.545 |
 | When should students apply for internships? | Yes | 0.600 |
+| What are the best cafes to study at other than the library? | Yes | 0.555 |
 | What is the capital of Mongolia? | No | 0.891 |
 | How do I change the oil in a diesel engine? | No | 0.762 |
 | Who won the 1994 World Cup? | No | 0.942 |
@@ -204,15 +205,127 @@ I fed outputs and distances from running questions using `python app.py ask` as 
 
 | Criterion | Target | Run 1 | Run 2 | Run 3 | Verdict |
 |---|---|---|---|---|---|
-| 1. Retrieved chunk contains the answer | 4 of 5 |  |  |  |  |
-| 2. Every answer names a source | 5 of 5 |  |  |  |  |
-| 3. Gate stops out-of-corpus questions | 4 of 5 |  |  |  |  |
-| 4. | | | | | |
-| 5. | | | | | |
+| 1. Retrieved chunk contains the answer | 4 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 2. Every answer names a source | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 3. Gate stops out-of-corpus questions | 4 of 5 | 5/5 | (N/A)/5 | (N/A)/5 | MET |
+| 4. A chunk should not be cut off | 5 of 5 | 5/5 | 5/5 | 5/5 | MET |
+| 5. The system shouldn't answer questions about the world cup. | 5 of 5 | 5/5 | (N/A)5 | (N/A)/5 | MET |
+
+### Note: How I compiled results
+     I've marked run 2 and run 3 as N/A (in criterions 3 and 5) for criteria that evaluate the effectiveness of the rejection feature for out-of-corpus test questions, because they only run in one pass.
+
+     I checked criterions 1 and 4 (involves chunks) by using `python app.py chunks --from-doc` to retrieve and inspect chunks from the cited source file in each run.
 
 <!-- Underneath, paste the REAL output for each criterion from one of your
      runs — the actual text your system produced, not a description of it.
      Name the file and function that produced it. -->
+
+## Sample Outputs by Criterion
+### 1: Retrieved chunk contains the answer
+Function & file source: cmd_chunks() in `app.py`
+
+     75 chunks total. Showing all 3 from thread_roommate_conflict.txt.
+
+     Paste these into your README under Sample Chunks. The rubric asks
+     for the source file and the function that produced them — both are
+     printed for you below.
+
+     ======================================================================
+     Chunk 1  |  source: thread_roommate_conflict.txt#0  |  produced by: chunker.py::split_documents
+     ======================================================================
+     Talk to your RA early, and frame it as 'we need help sorting this out' rather than 'move me'. Room changes are possible but the process starts with mediation and skipping that step slows it down.
+
+     ======================================================================
+     Chunk 2  |  source: thread_roommate_conflict.txt#1  |  produced by: chunker.py::split_documents
+     ======================================================================
+     Room changes happen at the semester boundary almost always, and mid-semester only in fairly serious cases.
+
+     ======================================================================
+     Chunk 3  |  source: thread_roommate_conflict.txt#2  |  produced by: chunker.py::split_documents
+     ======================================================================
+     Write down specifics before the meeting. 'It's not working' is hard to act on; 'guests four nights a week past 2am' is not.
+
+     For each one, ask: could someone answer a question using only this,
+     without reading what came before or after?
+
+### 2. Every answer names a source
+Function & file source: cmd_chunks() in `app.py`
+
+     75 chunks total. Showing all 4 from thread_study_spots.txt.
+
+     Paste these into your README under Sample Chunks. The rubric asks
+     for the source file and the function that produced them — both are
+     printed for you below.
+
+     ======================================================================
+     Chunk 1  |  source: thread_study_spots.txt#0  |  produced by: chunker.py::split_documents
+     ======================================================================
+     Ridgeway Café before 10am. Empty, quiet, good coffee, and they don't push you out.
+
+     ======================================================================
+     Chunk 2  |  source: thread_study_spots.txt#1  |  produced by: chunker.py::split_documents
+     ======================================================================
+     The science building has open lounges on floors 2 through 5 that are unlocked and almost always empty.
+
+     ======================================================================
+     Chunk 3  |  source: thread_study_spots.txt#2  |  produced by: chunker.py::split_documents
+     ======================================================================
+     Depends what you need. If you need silence, the library third floor is the only place that reliably delivers it.
+
+     ======================================================================
+     Chunk 4  |  source: thread_study_spots.txt#3  |  produced by: chunker.py::split_documents
+     ======================================================================
+     The group study rooms in the library can be booked by one person and used alone. Nobody checks.
+
+     For each one, ask: could someone answer a question using only this,
+     without reading what came before or after?
+
+### 3. Gate stops out-of-corpus questions
+Function & file source: _ask_one() in `app.py`
+
+When asked "How do I write a for loop in Rust?" (not answered by corpus, `advice_threads`)
+
+     (best distance 0.909, cutoff 0.7)
+
+     I don't have enough information about that.
+
+     0 model calls this session
+
+
+### 4. A chunk should not be cut off
+Function & file source: cmd_chunks() in `app.py`
+
+     75 chunks total. Showing all 3 from thread_internship_timing.txt.
+
+     Paste these into your README under Sample Chunks. The rubric asks
+     for the source file and the function that produced them — both are
+     printed for you below.
+
+     ======================================================================
+     Chunk 1  |  source: thread_internship_timing.txt#0  |  produced by: chunker.py::split_documents
+     ======================================================================
+     Earlier than feels reasonable. Large employers close applications in October and November for the following summer.
+
+     ======================================================================
+     Chunk 2  |  source: thread_internship_timing.txt#1  |  produced by: chunker.py::split_documents
+     ======================================================================
+     Smaller and local places hire in February and March, so if you missed autumn you have not missed everything.
+
+     ======================================================================
+     Chunk 3  |  source: thread_internship_timing.txt#2  |  produced by: chunker.py::split_documents
+     ======================================================================
+     The careers office reviews CVs on a drop-in basis and the queue is almost never longer than one person.
+
+### 5. The system shouldn't answer questions about the world cup.
+Function & file source: _ask_one() in `app.py`
+
+When asked, "Who won the 1994 World Cup?" (not answered by corpus, `advice_threads`)
+
+     (best distance 0.929, cutoff 0.7)
+
+     I don't have enough information about that.
+
+     0 model calls this session
 
 ## Verdicts
 
