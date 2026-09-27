@@ -166,8 +166,10 @@ def split_documents(documents: list[Document]) -> list[Chunk]:
     # 
     # criteria - good chunk: complete, standalone + focused thought
     # ex. "Professor Smith's exams come from the lecture slides, not the textbook. Students say attending every class matters more than doing the readings. Midterms are curved; finals are not."
+
     # - incomplete - no a full standalone thought
     # ex. "Professor Smith's exams come from the"
+
     # - too big - 4 topics, every matches every question a little and no question well
     #
     #
