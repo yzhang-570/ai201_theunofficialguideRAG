@@ -28,7 +28,7 @@ contains the expected answer.
 **Why this target:**
 <!-- e.g. "One of my questions is about a topic only two documents mention, so
      I expect that one to be hard." -->
-     A few questions aren't worded exactly asked in the source documents, so the answer may also differ slightly in phrasing.
+     A few questions and expected answers aren't worded exactly asked in the source documents, so the answer may also differ slightly in phrasing.
 
 ---
 
@@ -63,9 +63,10 @@ in at least 4 of 5 tries.
 
 ---
 
-## 4. A chunk should only cover one topic
+## 4. A chunk should not be cut off
 
-Every answer should use chunks that cover only 1 topic.
+Every answer should not reference a chunk that is incomplete. It should be a complete thought, 
+not something clearly cut off.
 
 <!-- YOU WRITE THIS ONE.
 
@@ -82,14 +83,14 @@ Every answer should use chunks that cover only 1 topic.
 
 
 **Why this target:**
-All responses in the chosen corpus, "advice_threads", have highly consistent source answer threads that each span 2 sentences.
-The system should identify only relevant threads, and return those accordingly without extra threads.
+All responses in the chosen corpus, "advice_threads", have highly consistent answer threads that each span 1-2 sentences. A chunk
+shorter than a single, cohesive reply that should easily be chunkable means chunking didn't occur correctly.
 
 
 ---
 
-## 5. The system shouldn't answer questions about vacations.
-When I ask a question about vacations, the relevance gate should always stop it.
+## 5. The system shouldn't answer questions about the world cup.
+When I ask a question about the world cup, the relevance gate should always stop it.
 
 
 <!-- YOU WRITE THIS ONE TOO.

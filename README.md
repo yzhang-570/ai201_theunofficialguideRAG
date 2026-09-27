@@ -13,7 +13,7 @@
      this repo.
 
      Milestone 5. -->
-     The corpus this repo is optimized for is advice_threads. This system answers questions looking for answers based in personal experience. This ranges from topics big to small, such as commuting and meals plans to transfers. 
+     'advice_threads' is the corpus this repo is optimized for. This system answers questions looking for answers based in personal experience. This ranges from topics like commuting and meals plans to transfers. 
 
 ## Chunking Strategy
 
@@ -167,9 +167,15 @@ Sources retrieved: thread_first_year_regret.txt, thread_internship_timing.txt, t
 
      Milestone 5. -->
 
-**1.**
+**1. Implementing Reply-Split Chunking**  
+Once I identified the strategy of splitting chunks by
+replies in replacement of fixed chunk and overlap sizes, I used AI to implement a regex
+that fits the formatting of the replies to split them by this regex. It correctly chunked
+documents by splitting them by each reply. However, it still included reply headers, which I
+revised to remove from each chunk using AI.
 
-**2.**
+**2. Filling in the README.md sample question distances table**  
+I fed outputs and distances from running questions using `python app.py ask` as context to update the distances table above using AI. Since both the table's structure and final information was already provided, AI was able to fill in the table accurately in one attempt, and I was not required to change it.
 
 <!-- ── Stretch features ─────────────────────────────────────────────────────
      Doing one? Say so here BEFORE you start. A feature this README never
