@@ -150,6 +150,7 @@ Sources retrieved: thread_first_year_regret.txt, thread_internship_timing.txt, t
 | What advice do you have for joining clubs? | Yes | 0.695 |
 | Any insider tips about studying in the library? | Yes | 0.545 |
 | When should students apply for internships? | Yes | 0.600 |
+| What are the best cafes to study at other than the library? | Yes | 0.555 |
 | What is the capital of Mongolia? | No | 0.891 |
 | How do I change the oil in a diesel engine? | No | 0.762 |
 | Who won the 1994 World Cup? | No | 0.942 |
