@@ -23,11 +23,24 @@ names a target of "4 of 5", and four of three is not a thing.
 
 QUESTIONS = [
     # {"question": "...", "expects": "..."},
+
+    # thread_roomate_conflict.txt
     {"question": "Who should I talk to if I have conflicts with my roomate?", "expects": "RA"},
-    {"question": "What advice do you have for joining clubs?", "expects": "join fewer but with deep involvement. quality > quantity"},
+    # 0.633 - (fixed) CUT
+
+    # thread_clubs.txt
+    {"question": "What advice do you have for joining clubs?", "expects": "few but deep"},
+    # 0.695 - (fixed) CUT
+
+    # thread_study_spots.txt
     {"question": "Any insider tips about studying in the library?", "expects": "go to third floor for silence"},
-    {"question": "What is the best place to study outside of the library?", "expects": "rideway cafe"},
-    {"question": "Any advice on looking for internships?", "expects": "Apply early in October and November, especially for larger companies"},
+    # 0.545
+    {"question": "What are the best cafes to study at other than the library?", "expects": "ridgeway cafe"},
+    # 
+
+    # thread_internship_timing.txt
+    {"question": "When should students apply for internships?", "expects": "Apply early in October and November, especially for larger companies"},
+    # 0.600
 ]
 
 # Questions from a different world entirely. Your gate should refuse all five.
@@ -38,11 +51,11 @@ QUESTIONS = [
 # records what happened, so criterion 3 has evidence in the run log alongside
 # the others. They cost no model calls: a refusal never reaches the model.
 OUT_OF_SCOPE = [
-    "What is the capital of Mongolia?",
-    "How do I change the oil in a diesel engine?",
-    "Who won the 1994 World Cup?",
-    "What is the recommended dosage of ibuprofen for a headache?",
-    "How do I write a for loop in Rust?",
+    "What is the capital of Mongolia?", # 0.891
+    "How do I change the oil in a diesel engine?", # 0.762
+    "Who won the 1994 World Cup?", # 0.942
+    "What is the recommended dosage of ibuprofen for a headache?", # 0.748
+    "How do I write a for loop in Rust?", # 0.849
 ]
 
 
