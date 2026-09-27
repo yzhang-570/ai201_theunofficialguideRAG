@@ -212,7 +212,7 @@ I fed outputs and distances from running questions using `python app.py ask` as 
 | 5. The system shouldn't answer questions about the world cup. | 5 of 5 | 5/5 | (N/A)5 | (N/A)/5 | MET |
 
 ### Note: How I compiled results
-     I've marked run 2 and run 3 as N/A (in criterions 3 and 5) for criteria that evaluate the effectiveness of the rejection feature for out-of-corpus test questions, because they only run in one pass.
+     I've marked run 3 and run 5 as N/A (in criterions 3 and 5) for criteria that evaluate the effectiveness of the rejection feature for out-of-corpus test questions, because they only run one pass.
 
      I checked criterions 1 and 4 (involves chunks) by using `python app.py chunks --from-doc` to retrieve and inspect chunks from the cited source file in each run.
 
@@ -249,36 +249,16 @@ Function & file source: cmd_chunks() in `app.py`
      without reading what came before or after?
 
 ### 2. Every answer names a source
-Function & file source: cmd_chunks() in `app.py`
+Function & file source: _ask_one() in `app.py`
 
-     75 chunks total. Showing all 4 from thread_study_spots.txt.
+     - Best distance: 0.5349 (passed the gate)
+     - Sources retrieved: thread_commuting.txt, thread_group_project.txt, thread_pass_fail.txt, thread_study_spots.txt
 
-     Paste these into your README under Sample Chunks. The rubric asks
-     for the source file and the function that produced them — both are
-     printed for you below.
+     ```
+     Based on the provided documents, group study rooms in the library can actually be booked and used by a single person since nobody checks (thread_study_spots.txt). Additionally, if you need silence, the third floor of the library is the only place that reliably delivers it (thread_study_spots.txt). 
 
-     ======================================================================
-     Chunk 1  |  source: thread_study_spots.txt#0  |  produced by: chunker.py::split_documents
-     ======================================================================
-     Ridgeway Café before 10am. Empty, quiet, good coffee, and they don't push you out.
-
-     ======================================================================
-     Chunk 2  |  source: thread_study_spots.txt#1  |  produced by: chunker.py::split_documents
-     ======================================================================
-     The science building has open lounges on floors 2 through 5 that are unlocked and almost always empty.
-
-     ======================================================================
-     Chunk 3  |  source: thread_study_spots.txt#2  |  produced by: chunker.py::split_documents
-     ======================================================================
-     Depends what you need. If you need silence, the library third floor is the only place that reliably delivers it.
-
-     ======================================================================
-     Chunk 4  |  source: thread_study_spots.txt#3  |  produced by: chunker.py::split_documents
-     ======================================================================
-     The group study rooms in the library can be booked by one person and used alone. Nobody checks.
-
-     For each one, ask: could someone answer a question using only this,
-     without reading what came before or after?
+     Source: thread_study_spots.txt
+     ```
 
 ### 3. Gate stops out-of-corpus questions
 Function & file source: _ask_one() in `app.py`
