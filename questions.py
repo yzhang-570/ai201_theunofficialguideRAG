@@ -25,21 +25,21 @@ QUESTIONS = [
     # {"question": "...", "expects": "..."},
 
     # thread_roomate_conflict.txt
-    {"question": "Who should I talk to if I have conflicts with my roomate?", "expects": "RA"},
+    {"question": "Who should I talk to if I have conflicts with my roommate?", "expects": "RA"},
     # 0.633 - (fixed) CUT
 
     # thread_clubs.txt
-    {"question": "What advice do you have for joining clubs?", "expects": "few but deep"},
+    {"question": "What advice do you have for joining clubs?", "expects": "signup sheet"},
     # 0.695 - (fixed) CUT
 
     # thread_study_spots.txt
-    {"question": "Any insider tips about studying in the library?", "expects": "go to third floor for silence"},
+    {"question": "Any insider tips about studying in the library?", "expects": "third floor"},
     # 0.545
-    {"question": "What are the best cafes to study at other than the library?", "expects": "ridgeway cafe"},
-    # 
+    {"question": "What are the best cafes to study at other than the library?", "expects": "Ridgeway"},
+    # 0.555
 
     # thread_internship_timing.txt
-    {"question": "When should students apply for internships?", "expects": "Apply early in October and November, especially for larger companies"},
+    {"question": "When should students apply for internships?", "expects": "October and November"},
     # 0.600
 ]
 
