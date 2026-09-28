@@ -1,3 +1,5 @@
+from rapidfuzz import fuzz
+
 def judge(question, expects, answer, results) -> bool:
   """
   q: 'give', expect: 'give'
@@ -6,6 +8,8 @@ def judge(question, expects, answer, results) -> bool:
 
   # lower - converts string to lowercase
   # trim - strips whitespace from beginning and end
+#   score = fuzz.token_set_ratio(expects.lower().strip(), answer.lower().strip())
+#   return score > 0.75
   return expects.lower().strip() in answer.lower()
   # fails if answer: '0 libraries', expects: 'no libraries', 
 
